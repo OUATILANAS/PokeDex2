@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/blueround.xml" value="0.115" />
+        <entry key="app/src/main/res/drawable/custom_progress_bar1.xml" value="0.103" />
+        <entry key="app/src/main/res/drawable/custom_progress_bar2.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/customprogressbar.xml" value="0.1175" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/progress_bar_horizontal.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/progress_bar_horizontal2.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/progress_bar_horizontal3.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/progress_bar_horizontal4.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/progress_bar_horizontal5.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/rectangle_progress_bar_drawable.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/roundedcorner.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/roundedcorner10.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/roundedcorner11.xml" value="0.1575" />
+        <entry key="app/src/main/res/drawable/roundedcorner12.xml" value="0.1575" />
+        <entry key="app/src/main/res/drawable/roundedcorner13.xml" value="0.1575" />
+        <entry key="app/src/main/res/drawable/roundedcorner14.xml" value="0.1145" />
+        <entry key="app/src/main/res/drawable/roundedcorner15.xml" value="0.1885" />
+        <entry key="app/src/main/res/drawable/roundedcorner16.xml" value="0.1275" />
+        <entry key="app/src/main/res/drawable/roundedcorner17.xml" value="0.2395" />
+        <entry key="app/src/main/res/drawable/roundedcorner2.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/roundedcorner3.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/roundedcorner4.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/roundedcorner5.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/roundedcorner6.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/roundedcorner7.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/roundedcorner8.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/roundedcorner9.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/action_bar_layout.xml" value="0.13360507246376813" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.40732727050781253" />
+        <entry key="app/src/main/res/layout/activity_main2.xml" value="0.3657957244655582" />
+        <entry key="app/src/main/res/layout/activity_main3.xml" value="0.7000350952148438" />
+        <entry key="app/src/main/res/layout/activity_main4.xml" value="0.5821563720703126" />
+        <entry key="app/src/main/res/layout/activity_main5.xml" value="0.7274247491638796" />
+        <entry key="app/src/main/res/layout/activity_main6.xml" value="0.48394495412844035" />
+        <entry key="app/src/main/res/layout/activity_main7.xml" value="0.3485351562499999" />
+        <entry key="app/src/main/res/layout/activity_main8.xml" value="0.40121056051815257" />
+        <entry key="app/src/main/res/layout/activity_main9.xml" value="0.571514892578125" />
+        <entry key="app/src/main/res/layout/custom_progress_bar1.xml" value="0.1644021739130435" />
+        <entry key="app/src/main/res/layout/rectangle_progress_bar.xml" value="0.1947463768115942" />
+        <entry key="app/src/main/res/layout/toolbar.xml" value="0.3128942462927075" />
+        <entry key="app/src/main/res/layout/toolbar2.xml" value="0.268760907504363" />
+        <entry key="app/src/main/res/layout/toolbar3.xml" value="0.2112655639648437" />
+        <entry key="app/src/main/res/layout/toolbar4.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/toolbar5.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/toolbar6.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/toolbar7.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/toolbar8.xml" value="0.3698471069335937" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

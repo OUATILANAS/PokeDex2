@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black2"
+    android:fillViewport="true"
+    tools:ignore="SpeakableTextPresentCheck"
+    app:layout_constraintBottom_toBottomOf="parent"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="Raichu X"
+            android:transitionName="textTransition8"
+            android:textColor="@color/white"
+            android:translationZ="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton29"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.798"
+            app:layout_constraintStart_toStartOf="parent"
+            app:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="Raichu"
+            android:transitionName="textTransition7"
+            android:textColor="@color/white"
+            android:translationZ="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton28"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.234"
+            app:layout_constraintStart_toStartOf="parent"
+            app:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="GiGa Pikachu"
+            android:transitionName="textTransition6"
+            android:textColor="@color/white"
+            android:translationZ="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton23"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.815"
+            app:layout_constraintStart_toStartOf="parent"
+            app:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:transitionName="textTransition5"
+            android:layout_marginBottom="12dp"
+            android:text="Pikachu"
+            android:textColor="@color/white"
+            android:translationZ="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton22"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.227"
+            app:layout_constraintStart_toStartOf="parent"
+            app:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="GiGa Charizard"
+            android:transitionName="textTransition4"
+            android:textColor="@color/white"
+            android:translationZ="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.829"
+            app:layout_constraintStart_toStartOf="parent"
+            app:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Charizard X"
+            android:transitionName="textTransition3"
+            android:textColor="@color/white"
+            android:translationZ="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.205"
+            app:layout_constraintStart_toStartOf="parent"
+            app:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Charizard Y"
+            android:textColor="@color/white"
+            android:transitionName="textTransition2"
+            android:translationZ="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.785"
+            app:layout_constraintStart_toStartOf="parent"
+            app:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Charizard"
+            android:transitionName="textTransition"
+            android:textColor="@color/white"
+            android:translationZ="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton17"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.234"
+            app:layout_constraintStart_toStartOf="parent"
+            app:textAllCaps="false" />
+
+        <ImageButton
+            android:id="@+id/imageButton24"
+            android:layout_width="176dp"
+            android:layout_height="173dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/roundedcorner"
+            android:padding="25dp"
+            android:scaleType="fitStart"
+            android:transitionName="imageTransition3"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton14"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton17"
+            app:srcCompat="@drawable/_06_f2"
+            tools:ignore="SpeakableTextPresentCheck,DuplicateClickableBoundsCheck" />
+
+        <ImageButton
+            android:id="@+id/imageButton22"
+            android:layout_width="176dp"
+            android:layout_height="173dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/roundedcorner2"
+            android:padding="25dp"
+            android:transitionName="imageTransition5"
+            android:scaleType="fitStart"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton23"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton24"
+            app:srcCompat="@drawable/_25"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/imageButton23"
+            android:layout_width="176dp"
+            android:layout_height="173dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/roundedcorner3"
+            android:transitionName="imageTransition6"
+            android:padding="25dp"
+            android:scaleType="fitStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageButton22"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton14"
+            app:srcCompat="@drawable/_25_f2"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/imageButton14"
+            android:layout_width="176dp"
+            android:layout_height="173dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/roundedcorner4"
+            android:padding="25dp"
+            android:scaleType="fitStart"
+            android:transitionName="imageTransition4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageButton24"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton16"
+            app:srcCompat="@drawable/_06_f4"
+            tools:ignore="SpeakableTextPresentCheck,DuplicateClickableBoundsCheck" />
+
+        <ImageButton
+            android:id="@+id/imageButton16"
+            android:layout_width="176dp"
+            android:layout_height="173dp"
+            android:background="@drawable/roundedcorner5"
+            android:padding="25dp"
+            android:scaleType="fitStart"
+            android:transitionName="imageTransition2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.935"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.027"
+            app:srcCompat="@drawable/_06_f3"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/imageButton17"
+            android:layout_width="176dp"
+            android:layout_height="173dp"
+            android:background="@drawable/roundedcorner6"
+            android:padding="25dp"
+            android:scaleType="fitStart"
+            android:transitionName="imageTransition"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.068"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.028"
+            app:srcCompat="@drawable/_06"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/imageButton28"
+            android:layout_width="176dp"
+            android:layout_height="173dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/roundedcorner7"
+            android:padding="25dp"
+            android:transitionName="imageTransition7"
+            android:scaleType="fitStart"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton29"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton22"
+            app:srcCompat="@drawable/_26"
+            tools:ignore="SpeakableTextPresentCheck,DuplicateClickableBoundsCheck" />
+
+        <ImageButton
+            android:id="@+id/imageButton29"
+            android:layout_width="176dp"
+            android:layout_height="173dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/roundedcorner8"
+            android:padding="25dp"
+            android:scaleType="fitStart"
+            android:transitionName="imageTransition8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageButton28"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton23"
+            app:srcCompat="@drawable/_26_f2"
+            tools:ignore="SpeakableTextPresentCheck,DuplicateClickableBoundsCheck" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
+
