@@ -3,180 +3,157 @@ package com.example.pokdex;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.pokdex.models.Pokemon;
+import com.example.pokdex.models.PokemonRequest;
+import com.example.pokdex.pokeapi.PokeapiService;
 
-    private ImageButton img1;
-    private ImageButton img2;
-    private ImageButton img3;
-    private ImageButton img4;
+import java.util.ArrayList;
+import java.util.Random;
 
-    private TextView txt1;
-    private TextView txt2;
-    private TextView txt3;
-    private TextView txt4;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
-    private ImageButton img5;
-    private ImageButton img6;
-    private ImageButton img7;
-    private ImageButton img8;
+public class MainActivity extends AppCompatActivity  {
+    private static final String TAG = "POKDEX";
+    private ImageView img;
+    private TextView txt;
 
-    private TextView txt5;
-    private TextView txt6;
-    private TextView txt7;
-    private TextView txt8;
-
-
+    private Retrofit retrofit;
+    private RecyclerView recyclerView;
+    private ListPokemonAdapter listPokemonAdapter;
+    private int offset=0;
+    private boolean Limit;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        img1 = findViewById(R.id.imageButton17);
-        txt1 = findViewById(R.id.textView4);
+        recyclerView = (RecyclerView) findViewById(R.id.recycleView);
+        listPokemonAdapter = new ListPokemonAdapter(this);
+        recyclerView.setAdapter(listPokemonAdapter);
+        recyclerView.setHasFixedSize(true);
+        GridLayoutManager layoutManager = new GridLayoutManager(this,2);
+        recyclerView.setLayoutManager(layoutManager);
 
-        img1.setOnClickListener(new View.OnClickListener() {
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(MainActivity.this, recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
-                Pair[] pairs = new Pair[2];
-                pairs[0] = new Pair<View,String>(img1,"imageTransition");
-                pairs[1] = new Pair<View,String>(txt1,"textTransition");
+            public void onItemClick(View view, int position) {
+                // Show progress dialog or loading indicator
+
+
+// Make API request and retrieve data
+// Once data is retrieved, dismiss progress dialog and start second activity
+
+                Intent intent2 = new Intent(MainActivity.this,MainActivity2.class);
+                intent2.putExtra("index",String.valueOf(position+1));
+
+                img= findViewById(position+1);
+                img.setTransitionName("A"+String.valueOf(position+1));
+
+                GradientDrawable drawable2 = (GradientDrawable) img.getBackground();
+                Pair[] pairs = new Pair[1];
+                pairs[0] = new Pair<View,String>(img,"A"+String.valueOf(position+1));
+                intent2.putExtra("color",String.valueOf(drawable2.getColor().getDefaultColor()));
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-                startActivity(intent,options.toBundle());
 
-
-            }
-        });
-
-        img2 = findViewById(R.id.imageButton16);
-        txt2 = findViewById(R.id.textView5);
-
-        img2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(MainActivity.this,MainActivity3.class);
-                Pair[] pairs = new Pair[2];
-                pairs[0] = new Pair<View,String>(img2,"imageTransition2");
-                pairs[1] = new Pair<View,String>(txt2,"textTransition2");
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
                 startActivity(intent2,options.toBundle());
-
-
             }
-        });
 
-        img3 = findViewById(R.id.imageButton24);
-        txt3 = findViewById(R.id.textView7);
-
-        img3.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(MainActivity.this,MainActivity4.class);
-                Pair[] pairs = new Pair[2];
-                pairs[0] = new Pair<View,String>(img3,"imageTransition3");
-                pairs[1] = new Pair<View,String>(txt3,"textTransition3");
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-                startActivity(intent2,options.toBundle());
-
-
+            public void onItemLongClick(View view, int position) {
             }
-        });
-
-        img4 = findViewById(R.id.imageButton14);
-        txt4 = findViewById(R.id.textView8);
-
-        img4.setOnClickListener(new View.OnClickListener() {
+        }));
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(MainActivity.this,MainActivity5.class);
-                Pair[] pairs = new Pair[2];
-                pairs[0] = new Pair<View,String>(img4,"imageTransition4");
-                pairs[1] = new Pair<View,String>(txt4,"textTransition4");
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-                startActivity(intent2,options.toBundle());
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
 
+                if (dy > 0) {
+                    int visibleItemCount = layoutManager.getChildCount();
+                    int totalItemCount = layoutManager.getItemCount();
+                    int pastVisibleItems = layoutManager.findFirstVisibleItemPosition();
 
+                    if (Limit) {
+                        if ((visibleItemCount + pastVisibleItems) >= totalItemCount) {
+                            Limit = false;
+                            offset += 20;
+                            getData(offset);
+                        }
+                    }
+                }
             }
         });
 
-        img5 = findViewById(R.id.imageButton22);
-        txt5 = findViewById(R.id.textView9);
+        retrofit = new Retrofit.Builder()
+                .baseUrl("https://pokeapi.co/api/v2/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Limit = true;
+        offset=0;
+        getData(offset);
 
-        img5.setOnClickListener(new View.OnClickListener() {
+    }
+
+    private void getData(int offset){
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
+
+        PokeapiService service = retrofit.create(PokeapiService.class);
+        Call<PokemonRequest> pokemonRequestCall = service.getPokemonList(20,offset);
+        pokemonRequestCall.enqueue(new Callback<PokemonRequest>() {
             @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(MainActivity.this,MainActivity6.class);
-                Pair[] pairs = new Pair[2];
-                pairs[0] = new Pair<View,String>(img5,"imageTransition5");
-                pairs[1] = new Pair<View,String>(txt5,"textTransition5");
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-                startActivity(intent2,options.toBundle());
+            public void onResponse(Call<PokemonRequest> call, Response<PokemonRequest> response) {
+                Limit = true;
+                ProgressBar progressBar = findViewById(R.id.progressBar);
+                progressBar.setVisibility(View.GONE);
+                if (response.isSuccessful())
+                {
+                    PokemonRequest pokemonRequest = response.body();
+                    ArrayList<Pokemon> listPokemon = pokemonRequest.getResults();
+                    listPokemonAdapter.DicListePokemon(listPokemon);
 
 
+                    for (int i = 0 ; i<listPokemon.size();i++)
+                    {
+                        //img= findViewById(i+1);
+                        //img.setTransitionName("A"+String.valueOf(i+1));
+                    }
+                }
+                else{
+                    Log.e(TAG," onResponse: " +response.errorBody());
+                }
             }
-        });
 
-        img6 = findViewById(R.id.imageButton23);
-        txt6 = findViewById(R.id.textView10);
-
-        img6.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(MainActivity.this,MainActivity7.class);
-                Pair[] pairs = new Pair[2];
-                pairs[0] = new Pair<View,String>(img6,"imageTransition6");
-                pairs[1] = new Pair<View,String>(txt6,"textTransition6");
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-                startActivity(intent2,options.toBundle());
-
+            public void onFailure(Call<PokemonRequest> call, Throwable t) {
+                Limit = true;
+                Log.e(TAG," onFailure : " + t.getMessage());
 
             }
         });
-
-        img7 = findViewById(R.id.imageButton28);
-        txt7 = findViewById(R.id.textView11);
-
-        img7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(MainActivity.this,MainActivity8.class);
-                Pair[] pairs = new Pair[2];
-                pairs[0] = new Pair<View,String>(img7,"imageTransition7");
-                pairs[1] = new Pair<View,String>(txt7,"textTransition7");
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-                startActivity(intent2,options.toBundle());
-
-
-            }
-        });
-
-        img8 = findViewById(R.id.imageButton29);
-        txt8 = findViewById(R.id.textView12);
-
-        img8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(MainActivity.this,MainActivity9.class);
-                Pair[] pairs = new Pair[2];
-                pairs[0] = new Pair<View,String>(img8,"imageTransition8");
-                pairs[1] = new Pair<View,String>(txt8,"textTransition8");
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-                startActivity(intent2,options.toBundle());
-
-
-            }
-        });
-
-
-
     }
 }
