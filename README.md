@@ -34,7 +34,6 @@ If the user taps on a Pokémon, a new screen will open displaying more informati
 
 
 ## Features
-+ Search for a Pokémon by name or ID number.
 
 + View detailed information about a Pokémon, including its type, stats, and abilities.
 
